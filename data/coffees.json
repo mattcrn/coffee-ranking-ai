@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Ethiopian Yirgacheffe",
+    "roastery": "Blue Bottle",
+    "image": "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=60",
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "Kenyan AA",
+    "roastery": "Stumptown Coffee Roasters",
+    "image": "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=800&q=60",
+    "rating": 4.0
+  },
+  {
+    "id": 3,
+    "name": "Colombian Supremo",
+    "roastery": "Intelligentsia",
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=60",
+    "rating": 4.2
+  },
+  {
+    "id": 4,
+    "name": "Guatemalan Antigua",
+    "roastery": "Verve Coffee Roasters",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=60",
+    "rating": 4.7
+  },
+  {
+    "id": 5,
+    "name": "Sumatra Mandheling",
+    "roastery": "Sightglass Coffee",
+    "image": "https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?auto=format&fit=crop&w=800&q=60",
+    "rating": 3.8
+  },
+  {
+    "id": 6,
+    "name": "Costa Rica Tarrazu",
+    "roastery": "La Colombe",
+    "image": "https://images.unsplash.com/photo-1525097487452-6278ff080c31?auto=format&fit=crop&w=800&q=60",
+    "rating": 4.3
+  }
+]
