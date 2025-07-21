@@ -1,3 +1,9 @@
+---
+description: "Cursor agent workflow for feature and bug tasks"
+globs:
+alwaysApply: true
+-----------------
+
 # Nuxt 4 Testing Setup Rules
 
 ## Testing Infrastructure
@@ -5,20 +11,12 @@
 - Test files are located in `tests/` directory with `.test.ts` extension
 - Test files should be named after the feature/page being tested (e.g., `nuxt-ui-example.test.ts`)
 
-## Feature Development Workflow (TDD Approach)
-
-### 1. ALWAYS Create Tests First
-For every new feature, page, or component:
-- **FIRST**: Create comprehensive end-to-end tests in `tests/[feature-name].test.ts`
-- **THEN**: Implement the feature until all tests pass
-- **EXCEPTION**: Only skip testing if explicitly told "do not create tests"
-
-### 2. Test File Naming Convention
+## Test File Naming Convention
 - Use descriptive names: `[feature-name].test.ts`
 - Examples: `login.test.ts`, `dashboard.test.ts`, `user-profile.test.ts`
 - Match the feature/page being tested
 
-### 3. Test Structure Requirements
+## Test Structure Requirements
 ```typescript
 import { expect, test } from '@nuxt/test-utils/playwright'
 
@@ -33,7 +31,7 @@ test('[feature-name] handles user interactions', async ({ page, goto }) => {
 })
 ```
 
-### 4. Test Coverage Guidelines
+## Test Coverage Guidelines
 **INCLUDE** in tests:
 - ✅ Page title and main headings
 - ✅ Core UI components (buttons, forms, inputs)
@@ -50,25 +48,19 @@ test('[feature-name] handles user interactions', async ({ page, goto }) => {
 - ❌ Don't create tests for static content only
 - ❌ Don't test implementation details
 
-### 5. Test Quality Standards
+## Test Quality Standards
 - Use descriptive test names that explain what is being tested
 - Test the "happy path" and critical user flows
 - Focus on user experience and business logic
 - Keep tests maintainable and readable
 - Use proper assertions with clear error messages
 
-### 6. Implementation Guidelines
-- Write tests that define the expected behavior
-- Implement features to make tests pass
-- Refactor code while keeping tests green
-- Ensure tests are fast and reliable
-
-### 7. Test Commands
+## Test Commands
 - Run tests: `npm run test`
 - Run specific test: `npx playwright test tests/[feature-name].test.ts`
 - Run tests with UI: `npx playwright test --ui`
 
-### 8. Example Test Template
+## Example Test Template
 ```typescript
 import { expect, test } from '@nuxt/test-utils/playwright'
 
@@ -98,13 +90,6 @@ test('[feature-name] handles user interactions', async ({ page, goto }) => {
   await expect(page.getByText('[Expected Result]')).toBeVisible()
 })
 ```
-
-## Development Process
-1. **Analyze** the feature requirements
-2. **Create** test file with core functionality tests
-3. **Implement** the feature incrementally
-4. **Run** tests frequently to ensure they pass
-5. **Refactor** code while maintaining test coverage
 
 ## Quality Assurance
 - Tests must pass before considering feature complete

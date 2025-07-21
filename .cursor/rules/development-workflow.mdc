@@ -1,0 +1,102 @@
+---
+description: "Cursor agent workflow for feature and bug tasks"
+globs:
+alwaysApply: true
+-----------------
+
+# Development Workflow Rules
+
+## Feature Development Workflow (TDD Approach)
+
+### 1. ALWAYS Create Tests First
+For every new feature, page, or component:
+- **FIRST**: Create comprehensive end-to-end tests in `tests/[feature-name].test.ts`
+- **THEN**: Implement the feature until all tests pass
+- **EXCEPTION**: Only skip testing if explicitly told "do not create tests"
+
+### 2. Documentation Requirements
+For every new feature, page, or component:
+- **MANDATORY**: Create documentation in `docs/` folder
+- **FILE NAMING**: Use `docs/[feature-name].md` convention
+- **CONTENT**: Include feature description, usage examples, and API details
+
+### 3. Development Process
+1. **Analyze** the feature requirements
+2. **Create** test file with core functionality tests
+3. **Create** documentation file in `docs/[feature-name].md`
+4. **Implement** the feature incrementally
+5. **Run** tests frequently to ensure they pass
+6. **Update** documentation as implementation evolves
+7. **Refactor** code while maintaining test coverage
+
+### 4. Documentation Structure
+```markdown
+# [Feature Name]
+
+## Overview
+Brief description of what this feature does and why it exists.
+
+## Usage
+Examples of how to use the feature.
+
+## API Reference
+If applicable, document any APIs, props, or configuration options.
+
+## Examples
+Code examples and use cases.
+
+## Testing
+Reference to the corresponding test file: `tests/[feature-name].test.ts`
+```
+
+### 5. File Organization
+```
+docs/
+├── [feature-name].md          ✅ Feature documentation
+└── [another-feature].md       ✅ Another feature doc
+
+tests/
+├── [feature-name].test.ts     ✅ Feature tests
+└── [another-feature].test.ts  ✅ Another feature tests
+
+app/
+├── pages/
+│   └── [feature-name].vue     ✅ Feature implementation
+└── components/
+    └── [FeatureName].vue      ✅ Feature components
+```
+
+### 6. Quality Standards
+- **Tests**: Must pass before considering feature complete
+- **Documentation**: Must be clear, comprehensive, and up-to-date
+- **Code**: Must be clean, maintainable, and follow project conventions
+- **Integration**: All parts must work together seamlessly
+
+### 7. Implementation Guidelines
+- Write tests that define the expected behavior
+- Write documentation that explains the feature clearly
+- Implement features to make tests pass
+- Update documentation as implementation evolves
+- Refactor code while keeping tests green
+- Ensure tests are fast and reliable
+
+## Development Workflow Summary
+
+### For Every New Feature:
+1. ✅ **Create Tests** → `tests/[feature-name].test.ts`
+2. ✅ **Create Documentation** → `docs/[feature-name].md`
+3. ✅ **Implement Feature** → `app/pages/[feature-name].vue` or components
+4. ✅ **Run Tests** → Ensure all tests pass
+5. ✅ **Update Docs** → Keep documentation current
+6. ✅ **Refactor** → Clean up while maintaining coverage
+
+### Exception Handling:
+- Only skip testing if explicitly told "do not create tests"
+- Documentation is always required for new features
+- Both tests and docs must be completed before feature is considered done
+
+Remember: **Tests First, Docs Second, Code Third** - This ensures we build well-tested, well-documented features that are maintainable and user-friendly.
+description:
+globs:
+alwaysApply: false
+---
