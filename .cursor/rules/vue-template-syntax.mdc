@@ -1,0 +1,233 @@
+---
+description: Vue component structure, template syntax, and component abstraction guidelines for maintaining clean, type-safe, and reusable Vue components.
+globs:
+alwaysApply: true
+---
+
+# Vue Template Syntax & Component Abstraction Rules
+
+Vue component structure, template syntax, and component abstraction guidelines for maintaining clean, type-safe, and reusable Vue components.
+
+## Vue Component Structure
+
+### 1. MANDATORY Component Order
+All Vue components MUST follow this exact order:
+```vue
+<script setup lang="ts">
+// TypeScript interfaces and logic
+</script>
+
+<template>
+  <!-- Template content -->
+</template>
+
+<!-- Style section only if needed -->
+```
+
+### 2. Script Setup with TypeScript
+**ALWAYS** use `<script setup lang="ts">` for all Vue components:
+```vue
+<script setup lang="ts">
+interface Coffee {
+  id: string
+  name: string
+  roastery: string
+  image: string
+  rating: number
+}
+
+defineProps<{
+  coffee: Coffee
+}>()
+</script>
+```
+
+### 3. TypeScript Interface Definitions
+- Define interfaces at the top of the script section
+- Use descriptive interface names (e.g., `Coffee`, `User`, `Product`)
+- Include all required properties with proper types
+- Use `string`, `number`, `boolean`, `Date`, or custom types
+
+## Component Abstraction Guidelines
+
+### 1. When to Extract Components
+**EXTRACT** when you have:
+- ✅ Reusable UI patterns (cards, buttons, forms)
+- ✅ Complex template logic that can be isolated
+- ✅ Repeated template structures
+- ✅ Components with clear, single responsibilities
+
+**KEEP INLINE** when:
+- ❌ Simple, one-off UI elements
+- ❌ Page-specific content that won't be reused
+- ❌ Very simple template logic
+
+### 2. Component Naming Convention
+- Use **PascalCase** for component names: `CoffeeCard.vue`
+- Use **descriptive names** that indicate the component's purpose
+- Match the component name to its primary function
+
+### 3. Component File Organization
+```
+app/
+├── components/
+│   ├── CoffeeCard.vue          ✅ Reusable component
+│   ├── UserProfile.vue         ✅ Reusable component
+│   └── NavigationBar.vue       ✅ Reusable component
+└── pages/
+    └── index.vue               ✅ Uses components
+```
+
+### 4. Props Interface Pattern
+**ALWAYS** define props with TypeScript interfaces:
+```vue
+<script setup lang="ts">
+interface ComponentProps {
+  title: string
+  description?: string
+  items: Array<{ id: string; name: string }>
+}
+
+defineProps<ComponentProps>()
+</script>
+```
+
+### 5. Component Usage Pattern
+**USE** components with clear, simple props:
+```vue
+<template>
+  <CoffeeCard :coffee="coffee" />
+  <UserProfile :user="user" />
+</template>
+```
+
+## Template Syntax Rules
+
+### 1. Data Test Attributes
+**ALWAYS** add `data-testid` attributes for testing:
+```vue
+<template>
+  <div data-testid="coffee-grid">
+    <UCard data-testid="coffee-card">
+      <h3 data-testid="coffee-name">{{ coffee.name }}</h3>
+    </UCard>
+  </div>
+</template>
+```
+
+### 2. Conditional Rendering
+Use `v-if` for conditional rendering:
+```vue
+<template>
+  <div v-if="isVisible" data-testid="visible-content">
+    Content here
+  </div>
+</template>
+```
+
+### 3. List Rendering
+Use `v-for` with `:key` for list rendering:
+```vue
+<template>
+  <div v-for="item in items" :key="item.id" data-testid="item">
+    {{ item.name }}
+  </div>
+</template>
+```
+
+### 4. Event Handling
+Use `@click` for event handling:
+```vue
+<template>
+  <button @click="handleClick" data-testid="action-button">
+    Click me
+  </button>
+</template>
+```
+
+## Component Abstraction Examples
+
+### ✅ Good Component Extraction
+```vue
+<!-- CoffeeCard.vue - Reusable component -->
+<script setup lang="ts">
+interface Coffee {
+  id: string
+  name: string
+  roastery: string
+  image: string
+  rating: number
+}
+
+defineProps<{
+  coffee: Coffee
+}>()
+</script>
+
+<template>
+  <UCard data-testid="coffee-card" class="h-full">
+    <UAvatar :src="coffee.image" :alt="coffee.name" />
+    <h3 data-testid="coffee-name">{{ coffee.name }}</h3>
+    <UBadge data-testid="coffee-roastery">{{ coffee.roastery }}</UBadge>
+  </UCard>
+</template>
+```
+
+### ✅ Good Component Usage
+```vue
+<!-- index.vue - Using the component -->
+<script setup lang="ts">
+interface Coffee {
+  id: string
+  name: string
+  roastery: string
+  image: string
+  rating: number
+}
+
+const coffeeRoasts = ref<Coffee[]>([...])
+</script>
+
+<template>
+  <div data-testid="coffee-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <CoffeeCard 
+      v-for="coffee in coffeeRoasts" 
+      :key="coffee.id" 
+      :coffee="coffee" 
+    />
+  </div>
+</template>
+```
+
+## Quality Standards
+
+### 1. Component Responsibility
+- Each component should have a **single, clear responsibility**
+- Components should be **focused and cohesive**
+- Avoid components that do too many things
+
+### 2. Props Design
+- Keep props **simple and focused**
+- Use **descriptive prop names**
+- Provide **default values** when appropriate
+- Use **TypeScript interfaces** for type safety
+
+### 3. Template Clarity
+- Keep templates **readable and maintainable**
+- Use **semantic HTML elements**
+- Add **data-testid attributes** for testing
+- Follow **consistent indentation and formatting**
+
+### 4. Reusability
+- Design components to be **reusable across the application**
+- Avoid **hard-coded values** in components
+- Make components **configurable** through props
+- Consider **different use cases** when designing components
+
+Remember: **Extract when it makes sense, keep it simple, and always use TypeScript for type safety.**
+
+---
+description: Vue component structure, template syntax, and component abstraction guidelines for maintaining clean, type-safe, and reusable Vue components.
+globs:
+alwaysApply: true
+---

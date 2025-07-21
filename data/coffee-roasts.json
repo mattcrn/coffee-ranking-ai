@@ -1,0 +1,44 @@
+[
+    {
+        "id": "ethiopian-yirgacheffe",
+        "name": "Ethiopian Yirgacheffe",
+        "roastery": "Blue Bottle Coffee",
+        "image": "/images/ethiopian-yirgacheffe.jpg",
+        "rating": 4.5
+    },
+    {
+        "id": "colombian-huila",
+        "name": "Colombian Huila",
+        "roastery": "Stumptown Coffee",
+        "image": "/images/colombian-huila.jpg",
+        "rating": 4.2
+    },
+    {
+        "id": "guatemala-antigua",
+        "name": "Guatemala Antigua",
+        "roastery": "Intelligentsia Coffee",
+        "image": "/images/guatemala-antigua.jpg",
+        "rating": 4.7
+    },
+    {
+        "id": "kenyan-aa",
+        "name": "Kenyan AA",
+        "roastery": "Counter Culture Coffee",
+        "image": "/images/kenyan-aa.jpg",
+        "rating": 4.3
+    },
+    {
+        "id": "brazilian-santos",
+        "name": "Brazilian Santos",
+        "roastery": "Peet's Coffee",
+        "image": "/images/brazilian-santos.jpg",
+        "rating": 4.0
+    },
+    {
+        "id": "sumatra-mandheling",
+        "name": "Sumatra Mandheling",
+        "roastery": "Starbucks Reserve",
+        "image": "/images/sumatra-mandheling.jpg",
+        "rating": 4.1
+    }
+]
